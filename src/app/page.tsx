@@ -1,9 +1,8 @@
-import { type NextPage } from "next";
-import Head from "next/head";
+"use client";
+
 import { useState } from "react";
 import { Github, Twitter } from "lucide-react";
-
-import { ChatGPTEditor } from "../sections/ChatGPTEditor";
+import { ChatGPTEditor } from "~/sections/ChatGPTEditor";
 import { EncoderSelect } from "~/sections/EncoderSelect";
 import { TokenViewer } from "~/sections/TokenViewer";
 import { TextArea } from "~/components/Input";
@@ -52,7 +51,7 @@ function isChatModel(
   );
 }
 
-const Home: NextPage = () => {
+function Home() {
   const [inputText, setInputText] = useState<string>("");
   const [params, setParams] = useState<
     { model: TiktokenModel } | { encoder: TiktokenEncoding }
@@ -63,10 +62,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Tiktokenizer</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-4 p-8">
         <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
           <h1 className="text-4xl font-bold">Tiktokenizer</h1>
@@ -184,6 +179,6 @@ const Home: NextPage = () => {
       </main>
     </>
   );
-};
+}
 
 export default Home;
